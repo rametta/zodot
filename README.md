@@ -47,7 +47,7 @@ print(result.error) # "Field 'age' has value lower than desired minimum of 12"
 
 ## Installation
 
-`// TODO`
+Clone `addons/zodot` into your projects `addons` folder, or downlaod directly from the Godot Asset Store here. (Link coming soon - pending application approval)
 
 ## Types
 
