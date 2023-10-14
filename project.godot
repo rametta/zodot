@@ -10,5 +10,10 @@ config_version=5
 
 [application]
 
-config/name="zodot"
+config/name="Zodot"
+config/description="Lightweight data validators"
 config/features=PackedStringArray("4.1", "Forward Plus")
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/zodot/plugin.cfg")
