@@ -2,7 +2,7 @@
 
 > Data Validator for [Godot](https://godotengine.org/) - _inspired by [Zod](https://github.com/colinhacks/zod)_
 
-Zodot is a lightweight data validation library for the Godot. Define a schema shape, then use that schema to validate any data. Excellent for parsing data that was stored in JSON, or data returned from API's.
+Zodot is a lightweight data validation library for Godot. Define a schema shape, then use that schema to validate any data. Excellent for parsing data that was stored in JSON, or data returned from API's.
 
 If validation passes then we are assured the data is in the correct shape, if not, Zodot provide friendly error messages for whichever field does not match the schema.
 
@@ -47,8 +47,8 @@ print(result.error) # "Field 'age' has value lower than desired minimum of 12"
 
 ## Installation
 
-Clone `addons/zodot` into your projects `addons` folder, or downlaod directly from the Godot Asset Store here. (Link coming soon - pending application approval)
+Clone `addons/zodot` into your projects `addons` folder, or download directly from the Godot Asset Store here. (Link coming soon - pending application approval)
 
 ## Types
 
-`// TODO`
+`// TODO - Coming soon`
