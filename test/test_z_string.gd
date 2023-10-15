@@ -18,5 +18,8 @@ func test_z_string_non_empty():
 	assert_false(Z.string().non_empty().parse("").is_ok())
 
 func test_z_string_nullable():
-	assert_true(Z.string().nulable().parse("my_str").is_ok())
-	assert_true(Z.string().nulable().parse(null).is_ok())
+	assert_true(Z.string().nullable().parse("my_str").is_ok())
+	assert_true(Z.string().nullable().parse(null).is_ok())
+
+func test_z_string_coerce():
+	assert_true(Z.string().coerce().parse(var_to_str(String("my_string"))).is_ok())

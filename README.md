@@ -58,8 +58,19 @@ Here is a list of all the available types to use for validation, and their assoc
 
 ### Z.string()
 
-Validate `strings` types. Available extension constraints:
+Parse [string](https://docs.godotengine.org/en/latest/classes/class_string.html#class-string) type.
+
+Available extension constraints:
 
 - `.non_empty()` enforces strings to not be empty
-- `.minimum()` enforces a minimum length on the string value
-- `.maximum()` enforces a maximum length on the string value
+- `.minimum()` enforces a minimum length
+- `.maximum()` enforces a maximum length
+
+### Z.integer()
+
+Parse [integer](https://docs.godotengine.org/en/latest/classes/class_int.html#class-int) type.
+
+Available extension constraints:
+
+- `.minimum()` enforces a minimum value
+- `.maximum()` enforces a maximum value

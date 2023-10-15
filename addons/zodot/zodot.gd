@@ -15,6 +15,6 @@ func coerce() -> Zodot:
 	_coerce = true
 	return self
 
-func nulable() -> Zodot:
+func nullable() -> Zodot:
 	_nullable = true
 	return self
