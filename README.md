@@ -28,7 +28,7 @@ var user = {
 func _ready():
   # Validate the data against the schema and get the result
   var result = UserSchema.parse(user)
-  print(result.is_ok()) # true
+  print(result.ok()) # true
 ```
 
 Using the same schema, here is an example where the validation fails:
@@ -41,7 +41,7 @@ var user = {
 }
 
 var result = UserSchema.parse(user)
-print(result.is_ok()) # false
+print(result.ok()) # false
 print(result.error) # "Field 'age' has value lower than desired minimum of 12"
 ```
 
@@ -61,15 +61,15 @@ Examples
 ```gdscript
 # Coerce example
 var schema = Z.integer().minimum(1).maximum(20).coerce()
-schema.parse("5").is_ok() # true
-var result = schema.parse(var_to_str(26)).is_ok() # false
+schema.parse("5").ok() # true
+var result = schema.parse(var_to_str(26)).ok() # false
 result.data == 26 # true, result data contains the coerced value
 
 # Nullable example
 var schema = Z.integer().minimum(1).maximum(20).nullable()
-schema.parse(5).is_ok() # true
-schema.parse(null).is_ok() # true
-schema.parse(26).is_ok() # false
+schema.parse(5).ok() # true
+schema.parse(null).ok() # true
+schema.parse(26).ok() # false
 ```
 
 ### Z.string()
@@ -86,8 +86,8 @@ Example
 
 ```gdscript
 var schema = Z.string().minimum(1).maximum(20)
-schema.parse("hello").is_ok() # true
-schema.parse("").is_ok() # false
+schema.parse("hello").ok() # true
+schema.parse("").ok() # false
 ```
 
 ### Z.integer()
@@ -103,9 +103,9 @@ Example
 
 ```gdscript
 var schema = Z.integer().minimum(1).maximum(20)
-schema.parse(5).is_ok() # true
-schema.parse(100).is_ok() # false
-schema.parse(5.5).is_ok() # false - float is not an integer
+schema.parse(5).ok() # true
+schema.parse(100).ok() # false
+schema.parse(5.5).ok() # false - float is not an integer
 ```
 
 ### Z.float()
@@ -121,9 +121,9 @@ Example
 
 ```gdscript
 var schema = Z.float().minimum(1.0).maximum(20.5)
-schema.parse(5.5).is_ok() # true
-schema.parse(100.45).is_ok() # false
-schema.parse(5).is_ok() # false - int is not a float
+schema.parse(5.5).ok() # true
+schema.parse(100.45).ok() # false
+schema.parse(5).ok() # false - int is not a float
 ```
 
 ### Z.boolean()
@@ -135,14 +135,14 @@ Accepts enum to constrain to either only `true` or only `false`. Default is both
 Example
 
 ```gdscript
-Z.boolean().parse(true).is_ok() # true
-Z.boolean().parse(false).is_ok() # true
+Z.boolean().parse(true).ok() # true
+Z.boolean().parse(false).ok() # true
 
-Z.boolean(z_boolean.Kind.ONLY_TRUE).parse(true).is_ok() # true
-Z.boolean(z_boolean.Kind.ONLY_TRUE).parse(false).is_ok() # false
+Z.boolean(z_boolean.Kind.ONLY_TRUE).parse(true).ok() # true
+Z.boolean(z_boolean.Kind.ONLY_TRUE).parse(false).ok() # false
 
-Z.boolean(z_boolean.Kind.ONLY_FALSE).parse(true).is_ok() # false
-Z.boolean(z_boolean.Kind.ONLY_FALSE).parse(false).is_ok() # true
+Z.boolean(z_boolean.Kind.ONLY_FALSE).parse(true).ok() # false
+Z.boolean(z_boolean.Kind.ONLY_FALSE).parse(false).ok() # true
 ```
 
 ### Z.array()
@@ -158,8 +158,8 @@ Available extension constraints:
 Example
 
 ```gdscript
-Z.array().parse([1,2,3]).is_ok() # true
-Z.array().non_empty().parse([]).is_ok() # false, empty
-Z.array(Z.integer()).parse([1,2,3]).is_ok() # true
-Z.array(Z.integer()).parse(["1",2,3]).is_ok() # false, item[0] is a string
+Z.array().parse([1,2,3]).ok() # true
+Z.array().non_empty().parse([]).ok() # false, empty
+Z.array(Z.integer()).parse([1,2,3]).ok() # true
+Z.array(Z.integer()).parse(["1",2,3]).ok() # false, item[0] is a string
 ```

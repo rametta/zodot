@@ -11,7 +11,7 @@ var value: Result = Result.Unknown
 var error: String = ""
 var data: Variant
 
-func is_ok() -> bool:
+func ok() -> bool:
 	return value == Result.Ok
 
 static func ok(data: Variant) -> ZodotResult:

@@ -29,7 +29,7 @@ func parse(value: Variant, field: String = "") -> ZodotResult:
 	if _schema != null:
 		for i in range(value.size()):
 			var result = _schema.parse(value[i], field + "[{i}]".format({ "i": i }))
-			if not result.is_ok():
+			if not result.ok():
 				return result
 		
 	return ZodotResult.ok(value)

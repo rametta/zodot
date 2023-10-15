@@ -13,7 +13,7 @@ func parse(value: Variant, field: String = "") -> ZodotResult:
 			field_name = "{field1}.{field2}".format({ "field1": field, "field2": _field })
 		var validator: Zodot = _schema[_field]
 		var result: ZodotResult = validator.parse(value[_field], field_name)
-		if not result.is_ok():
+		if not result.ok():
 			return result
 		
 	return ZodotResult.ok(value)
