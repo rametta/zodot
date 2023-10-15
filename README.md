@@ -168,7 +168,7 @@ Z.array(Z.integer()).parse(["1",2,3]).ok() # false, item[0] is a string
 
 Parse [dictionary](https://docs.godotengine.org/en/latest/classes/class_dictionary.html#class-dictionary) type.
 
-Accepts an optional extra schema to constrain dictionary items to a certain type.
+Accepts an optional extra schema to constrain dictionary items to a certain type. (For a specific dictionary shape, use `Z.schema()` instead)
 
 Available extension constraints:
 
@@ -181,4 +181,24 @@ Z.dictionary().parse({"key": 1}).ok() # true
 Z.dictionary().non_empty().parse({}).ok() # false, empty
 Z.dictionary(Z.integer()).parse({"key": 1}).ok() # true
 Z.dictionary(Z.integer()).parse({"key": "a"}).ok() # false, key is a string
+```
+
+### Z.schema()
+
+A special type for defining specific object shapes that are more rigid than a standard dictionary. Takes a dictionary as argument, where each key defines a type.
+
+Example
+
+```gdscript
+var schema = Z.schema({
+  "first_name": Z.string().non_empty(),
+  "fave_color": Z.color().nullable()
+})
+
+var data = {
+  "first_name": "Jason",
+  "fave_color": Color.ALICE_BLUE
+}
+
+schema.parse(data).ok() # true
 ```
