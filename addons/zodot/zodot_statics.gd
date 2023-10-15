@@ -94,8 +94,8 @@ static func callable() -> z_callable:
 static func zignal() -> z_signal:
 	return z_signal.new()
 	
-static func dictionary() -> z_dictionary:
-	return z_dictionary.new()
+static func dictionary(schema: Zodot = null) -> z_dictionary:
+	return z_dictionary.new(schema)
 	
 static func array(schema: Zodot = null) -> z_array:
 	return z_array.new(schema)

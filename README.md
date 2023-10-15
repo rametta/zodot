@@ -163,3 +163,22 @@ Z.array().non_empty().parse([]).ok() # false, empty
 Z.array(Z.integer()).parse([1,2,3]).ok() # true
 Z.array(Z.integer()).parse(["1",2,3]).ok() # false, item[0] is a string
 ```
+
+### Z.dictionary()
+
+Parse [dictionary](https://docs.godotengine.org/en/latest/classes/class_dictionary.html#class-dictionary) type.
+
+Accepts an optional extra schema to constrain dictionary items to a certain type.
+
+Available extension constraints:
+
+- `.non_empty()` enforces the dictionary to have at least 1 item
+
+Example
+
+```gdscript
+Z.dictionary().parse({"key": 1}).ok() # true
+Z.dictionary().non_empty().parse({}).ok() # false, empty
+Z.dictionary(Z.integer()).parse({"key": 1}).ok() # true
+Z.dictionary(Z.integer()).parse({"key": "a"}).ok() # false, key is a string
+```
