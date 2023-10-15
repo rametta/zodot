@@ -30,13 +30,12 @@ func parse(value: Variant, field: String = "") -> ZodotResult:
 		return ZodotResult.type_error(field)
 		
 	if _non_empty and value == "":
-		return ZodotResult.empty_error(field)
-		
+		return ZodotResult.constraint_error(field, "Value must not be empty")
 		
 	if _min != null and len(value) < _min:
-		return ZodotResult.min_error(field)
-			
+		return ZodotResult.constraint_error(field, "Value {value} length is smaller than min {min}".format({ "value": value, "min": _min }))
+		
 	if _max != null and len(value) > _max:
-		return ZodotResult.max_error(field)
+		return ZodotResult.constraint_error(field, "Value {value} length is larger than max {max}".format({ "value": value, "max": _max }))
 		
 	return ZodotResult.ok(value)

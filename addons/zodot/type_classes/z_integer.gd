@@ -25,9 +25,9 @@ func parse(value: Variant, field: String = "") -> ZodotResult:
 		return ZodotResult.type_error(field)
 		
 	if _min != null and value < _min:
-		return ZodotResult.min_error(field)
+		return ZodotResult.constraint_error(field, "Value {value} smaller than min {min}".format({ "value": value, "min": _min }))
 			
 	if _max != null and value > _max:
-		return ZodotResult.max_error(field)
+		return ZodotResult.constraint_error(field, "Value {value} larger than max {max}".format({ "value": value, "max": _max }))
 		
 	return ZodotResult.ok(value)
