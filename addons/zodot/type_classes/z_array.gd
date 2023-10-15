@@ -23,7 +23,7 @@ func parse(value: Variant, field: String = "") -> ZodotResult:
 	if not _valid_type(value):
 		return ZodotResult.type_error(field)
 		
-	if _non_empty and len(value) == 0:
+	if _non_empty and value.is_empty():
 		return ZodotResult.constraint_error(field, "Array must not be empty")
 		
 	if _schema != null:
