@@ -15,7 +15,7 @@ func maximum(m: int) -> z_float:
 	return self
 
 func parse(value: Variant, field: String = "") -> ZodotResult:
-	if _coerce:
+	if _coerce and typeof(value) == TYPE_STRING:
 		value = str_to_var(value)
 		
 	if _nullable and value == null:
@@ -24,12 +24,10 @@ func parse(value: Variant, field: String = "") -> ZodotResult:
 	if not _valid_type(value):
 		return ZodotResult.type_error(field)
 		
-	if _min != null:
-		if value < _min:
-			return ZodotResult.min_error(field)
+	if _min != null and value < _min:
+		return ZodotResult.min_error(field)
 			
-	if _max != null:
-		if value > _max:
-			return ZodotResult.max_error(field)
+	if _max != null and value > _max:
+		return ZodotResult.max_error(field)
 		
 	return ZodotResult.ok(value)

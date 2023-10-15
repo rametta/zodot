@@ -4,7 +4,7 @@ func _valid_type(value: Variant) -> bool:
 	return typeof(value) == TYPE_ARRAY
 
 func parse(value: Variant, field: String = "") -> ZodotResult:
-	if _coerce:
+	if _coerce and typeof(value) == TYPE_STRING:
 		value = str_to_var(value)
 		
 	if _nullable and value == null:
