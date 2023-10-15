@@ -124,3 +124,22 @@ schema.parse(5.5).is_ok() # true
 schema.parse(100.45).is_ok() # false
 schema.parse(5).is_ok() # false - int is not a float
 ```
+
+### Z.boolean()
+
+Parse [boolean](https://docs.godotengine.org/en/latest/classes/class_bool.html#class-bool) type.
+
+Accepts enum to constrain to either only `true` or only `false`. Default is both.
+
+Example
+
+```gdscript
+Z.boolean().parse(true).is_ok() # true
+Z.boolean().parse(false).is_ok() # true
+
+Z.boolean(z_boolean.Kind.ONLY_TRUE).parse(true).is_ok() # true
+Z.boolean(z_boolean.Kind.ONLY_TRUE).parse(false).is_ok() # false
+
+Z.boolean(z_boolean.Kind.ONLY_FALSE).parse(true).is_ok() # false
+Z.boolean(z_boolean.Kind.ONLY_FALSE).parse(false).is_ok() # true
+```

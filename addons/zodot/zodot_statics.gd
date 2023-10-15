@@ -15,8 +15,8 @@ static func schema(dict: Dictionary) -> z_schema:
 static func nil() -> z_nil:
 	return z_nil.new()
 	
-static func boolean() -> z_boolean:
-	return z_boolean.new()
+static func boolean(kind: z_boolean.Kind = z_boolean.Kind.BOTH) -> z_boolean:
+	return z_boolean.new(kind)
 	
 static func integer() -> z_integer:
 	return z_integer.new()
