@@ -29,3 +29,10 @@ func test_z_integer_nullable():
 
 func test_z_integer_coerce():
 	assert_true(Z.integer().coerce().parse(var_to_str(123)).is_ok())
+
+func test_z_int_data_coerce():
+	var result = Z.integer().coerce().parse(var_to_str(123))
+	
+	assert_true(result.is_ok())
+	assert_eq(result.data, 123)
+	assert_eq(result.error, "")

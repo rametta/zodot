@@ -29,3 +29,10 @@ func test_z_float_nullable():
 
 func test_z_float_coerce():
 	assert_true(Z.float().coerce().parse(var_to_str(123.56)).is_ok())
+	
+func test_z_float_data_coerce():
+	var result = Z.float().coerce().parse(var_to_str(123.56))
+	
+	assert_true(result.is_ok())
+	assert_eq(result.data, 123.56)
+	assert_eq(result.error, "")
