@@ -147,7 +147,7 @@ Z.boolean(z_boolean.Kind.ONLY_FALSE).parse(false).ok() # true
 
 ### Z.array()
 
-Parse [array](https://docs.godotengine.org/en/latest/classes/class_bool.html#class-bool) type.
+Parse [array](https://docs.godotengine.org/en/latest/classes/class_array.html#class-array) type.
 
 Accepts an optional extra schema to constrain array items to a certain type.
 

@@ -24,7 +24,7 @@ func parse(value: Variant, field: String = "") -> ZodotResult:
 		value = str_to_var(value)
 		
 	if _nullable and value == null:
-		return ZodotResult.ok(value)
+		return ZodotResult.good(value)
 	
 	if not _valid_type(value):
 		return ZodotResult.type_error(field)
@@ -38,4 +38,4 @@ func parse(value: Variant, field: String = "") -> ZodotResult:
 	if _max != null and len(value) > _max:
 		return ZodotResult.constraint_error(field, "Value {value} length is larger than max {max}".format({ "value": value, "max": _max }))
 		
-	return ZodotResult.ok(value)
+	return ZodotResult.good(value)

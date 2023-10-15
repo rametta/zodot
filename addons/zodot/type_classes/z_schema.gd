@@ -16,4 +16,4 @@ func parse(value: Variant, field: String = "") -> ZodotResult:
 		if not result.ok():
 			return result
 		
-	return ZodotResult.ok(value)
+	return ZodotResult.good(value)

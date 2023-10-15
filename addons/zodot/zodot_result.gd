@@ -14,7 +14,7 @@ var data: Variant
 func ok() -> bool:
 	return value == Result.Ok
 
-static func ok(data: Variant) -> ZodotResult:
+static func good(data: Variant) -> ZodotResult:
 	var result = ZodotResult.new()
 	result.value = Result.Ok
 	result.data = data
