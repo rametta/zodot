@@ -6,11 +6,11 @@ var _min
 func _valid_type(value: Variant) -> bool:
 	return typeof(value) == TYPE_FLOAT
 	
-func minimum(m: int) -> z_float:
+func minimum(m: float) -> z_float:
 	_min = m
 	return self
 	
-func maximum(m: int) -> z_float:
+func maximum(m: float) -> z_float:
 	_max = m
 	return self
 

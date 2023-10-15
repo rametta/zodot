@@ -78,8 +78,8 @@ Parse [string](https://docs.godotengine.org/en/latest/classes/class_string.html#
 Available extension constraints:
 
 - `.non_empty()` enforces strings to not be empty
-- `.minimum()` enforces a minimum length
-- `.maximum()` enforces a maximum length
+- `.minimum(value: int)` enforces a minimum length
+- `.maximum(value: int)` enforces a maximum length
 
 Example
 
@@ -95,8 +95,8 @@ Parse [integer](https://docs.godotengine.org/en/latest/classes/class_int.html#cl
 
 Available extension constraints:
 
-- `.minimum()` enforces a minimum value
-- `.maximum()` enforces a maximum value
+- `.minimum(value: int)` enforces a minimum value
+- `.maximum(value: int)` enforces a maximum value
 
 Example
 
@@ -105,4 +105,22 @@ var schema = Z.integer().minimum(1).maximum(20)
 schema.parse(5).is_ok() # true
 schema.parse(100).is_ok() # false
 schema.parse(5.5).is_ok() # false - float is not an integer
+```
+
+### Z.float()
+
+Parse [float](https://docs.godotengine.org/en/latest/classes/class_float.html#class-float) type.
+
+Available extension constraints:
+
+- `.minimum(value: float)` enforces a minimum value
+- `.maximum(value: float)` enforces a maximum value
+
+Example
+
+```gdscript
+var schema = Z.float().minimum(1.0).maximum(20.5)
+schema.parse(5.5).is_ok() # true
+schema.parse(100.45).is_ok() # false
+schema.parse(5).is_ok() # false - int is not a float
 ```
