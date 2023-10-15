@@ -56,6 +56,21 @@ Here is a list of all the available types to use for validation, and their assoc
 - `.coerce()` calls `str_to_var()` before validation, useful if previously called `var_to_string()`
 - `.nullable()` allows the field to be null or missing
 
+Examples
+
+```gdscript
+# Coerce example
+var schema = Z.integer().minimum(1).maximum(20).coerce()
+schema.parse(var_to_str(5)).is_ok() # true
+schema.parse(var_to_str(26)).is_ok() # false
+
+# Nullable example
+var schema = Z.integer().minimum(1).maximum(20).nullable()
+schema.parse(5).is_ok() # true
+schema.parse(null).is_ok() # true
+schema.parse(26).is_ok() # false
+```
+
 ### Z.string()
 
 Parse [string](https://docs.godotengine.org/en/latest/classes/class_string.html#class-string) type.
@@ -66,6 +81,14 @@ Available extension constraints:
 - `.minimum()` enforces a minimum length
 - `.maximum()` enforces a maximum length
 
+Example
+
+```gdscript
+var schema = Z.string().minimum(1).maximum(20)
+schema.parse("hello").is_ok() # true
+schema.parse("").is_ok() # false
+```
+
 ### Z.integer()
 
 Parse [integer](https://docs.godotengine.org/en/latest/classes/class_int.html#class-int) type.
@@ -74,3 +97,12 @@ Available extension constraints:
 
 - `.minimum()` enforces a minimum value
 - `.maximum()` enforces a maximum value
+
+Example
+
+```gdscript
+var schema = Z.integer().minimum(1).maximum(20)
+schema.parse(5).is_ok() # true
+schema.parse(100).is_ok() # false
+schema.parse(5.5).is_ok() # false - float is not an integer
+```
