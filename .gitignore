@@ -7,3 +7,4 @@ export.cfg
 export_presets.cfg
 
 addons/gut
+.gut_editor_config.json
