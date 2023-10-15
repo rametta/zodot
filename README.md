@@ -61,8 +61,9 @@ Examples
 ```gdscript
 # Coerce example
 var schema = Z.integer().minimum(1).maximum(20).coerce()
-schema.parse(var_to_str(5)).is_ok() # true
-schema.parse(var_to_str(26)).is_ok() # false
+schema.parse("5").is_ok() # true
+var result = schema.parse(var_to_str(26)).is_ok() # false
+result.data == 26 # true, result data contains the coerced value
 
 # Nullable example
 var schema = Z.integer().minimum(1).maximum(20).nullable()
@@ -142,4 +143,23 @@ Z.boolean(z_boolean.Kind.ONLY_TRUE).parse(false).is_ok() # false
 
 Z.boolean(z_boolean.Kind.ONLY_FALSE).parse(true).is_ok() # false
 Z.boolean(z_boolean.Kind.ONLY_FALSE).parse(false).is_ok() # true
+```
+
+### Z.array()
+
+Parse [array](https://docs.godotengine.org/en/latest/classes/class_bool.html#class-bool) type.
+
+Accepts an optional extra schema to constrain array items to a certain type.
+
+Available extension constraints:
+
+- `.non_empty()` enforces the array to have at least 1 item
+
+Example
+
+```gdscript
+Z.array().parse([1,2,3]).is_ok() # true
+Z.array().non_empty().parse([]).is_ok() # false, empty
+Z.array(Z.integer()).parse([1,2,3]).is_ok() # true
+Z.array(Z.integer()).parse(["1",2,3]).is_ok() # false, item[0] is a string
 ```

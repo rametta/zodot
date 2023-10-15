@@ -97,8 +97,8 @@ static func zignal() -> z_signal:
 static func dictionary() -> z_dictionary:
 	return z_dictionary.new()
 	
-static func array() -> z_array:
-	return z_array.new()
+static func array(schema: Zodot = null) -> z_array:
+	return z_array.new(schema)
 	
 static func packed_byte_array() -> z_packed_byte_array:
 	return z_packed_byte_array.new()
