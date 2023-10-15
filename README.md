@@ -51,4 +51,15 @@ Clone `addons/zodot` into your projects `addons` folder, or download directly fr
 
 ## Types
 
-`// TODO - Coming soon`
+Here is a list of all the available types to use for validation, and their associated constraints. All types also have available these base constraints:
+
+- `.coerce()` calls `str_to_var()` before validation, useful if previously called `var_to_string()`
+- `.nullable()` allows the field to be null or missing
+
+### Z.string()
+
+Validate `strings` types. Available extension constraints:
+
+- `.non_empty()` enforces strings to not be empty
+- `.minimum()` enforces a minimum length on the string value
+- `.maximum()` enforces a maximum length on the string value

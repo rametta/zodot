@@ -12,8 +12,10 @@ config_version=5
 
 config/name="Zodot"
 config/description="Lightweight data validators"
+run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
+config/icon="res://images/icon.png"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/zodot/plugin.cfg")
+enabled=PackedStringArray("res://addons/gut/plugin.cfg")

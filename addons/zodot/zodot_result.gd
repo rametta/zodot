@@ -11,13 +11,15 @@ enum Result {
 
 var value: Result = Result.Unknown
 var error: String = ""
+var data: Variant
 
 func is_ok() -> bool:
 	return value == Result.Ok
 
-static func ok() -> ZodotResult:
+static func ok(data: Variant) -> ZodotResult:
 	var result = ZodotResult.new()
 	result.value = Result.Ok
+	result.data = data
 	return result
 
 static func type_error(field: String) -> ZodotResult:
