@@ -436,3 +436,7 @@ Example
 ```gdscript
 Z.basis().parse(Basis.FLIP_X).ok() # true
 ```
+
+### More
+
+There are many more validators, please check [here](https://github.com/rametta/zodot/tree/main/addons/zodot/type_classes) for a full list of all the validators available.
