@@ -279,14 +279,20 @@ schema.parse(2).ok() # true
 schema.parse(67).ok() # false
 ```
 
-### Z.vector2()
+### Z.vector2() & Z.vector2i()
 
-Parse [Vector2](https://docs.godotengine.org/en/latest/classes/class_vector2.html#class-vector2) type.
+Parse [Vector2](https://docs.godotengine.org/en/latest/classes/class_vector2.html#class-vector2) and [Vector2I](https://docs.godotengine.org/en/latest/classes/class_vector2i.html#class-vector2i) types respectively.
 
 Example
 
 ```gdscript
+# Vector2
 Z.vector2().parse(Vector2.ZERO).ok() # true
 Z.vector2().parse(Vector2(1.1, 2)).ok() # true
 Z.vector2().parse(Vector3.ZERO).ok() # false
+
+# Vector2I
+Z.vector2i().parse(Vector2i.ZERO).ok() # true
+Z.vector2i().parse(Vector2i(1, 2)).ok() # true
+Z.vector2i().parse(Vector2.ZERO).ok() # false
 ```
