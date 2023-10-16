@@ -406,3 +406,33 @@ Example
 ```gdscript
 Z.quaternion().parse(Quaternion.IDENTITY).ok() # true
 ```
+
+### Z.aabb()
+
+Parse [AABB](https://docs.godotengine.org/en/latest/classes/class_aabb.html#class-aabb) type.
+
+Example
+
+```gdscript
+Z.aabb().parse(AABB()).ok() # true
+```
+
+### Z.rid()
+
+Parse [RID](https://docs.godotengine.org/en/latest/classes/class_rid.html#class-rid) type.
+
+Example
+
+```gdscript
+Z.rid().parse(RID()).ok() # true
+```
+
+### Z.basis()
+
+Parse [Basis](https://docs.godotengine.org/en/latest/classes/class_basis.html#class-basis) type.
+
+Example
+
+```gdscript
+Z.basis().parse(Basis.FLIP_X).ok() # true
+```
