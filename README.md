@@ -278,3 +278,15 @@ schema.parse(1).ok() # true
 schema.parse(2).ok() # true
 schema.parse(67).ok() # false
 ```
+
+### Z.vector2()
+
+Parse [Vector2](https://docs.godotengine.org/en/latest/classes/class_vector2.html#class-vector2) type.
+
+Example
+
+```gdscript
+Z.vector2().parse(Vector2.ZERO).ok() # true
+Z.vector2().parse(Vector2(1.1, 2)).ok() # true
+Z.vector2().parse(Vector3.ZERO).ok() # false
+```
