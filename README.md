@@ -13,6 +13,10 @@ Zodot is a lightweight data validation library for Godot. Define a schema shape,
 - Clear error messages
 - Lightweight & Zero Dependencies
 
+## Installation
+
+Clone `addons/zodot` into your projects `addons` folder, or [download directly](https://godotengine.org/asset-library/asset/2261) from the Godot Asset Store.
+
 ## Usage
 
 Here is an example of a defined schema for a `User` with 3 fields and their corresponding types. We can also see there are extra constraints on the name and age, such as name can not be empty, and age must be greater than 12.
@@ -79,10 +83,6 @@ assert_eq(result.data.my_color, Color(5.5,6.6,7.7, .5)) # true
 assert_eq(result.data.my_float, 1.23) # true
 assert_eq(result.data.my_vect3, Vector3(1.9,2.3,3.5)) # true
 ```
-
-## Installation
-
-Clone `addons/zodot` into your projects `addons` folder, or [download directly](https://godotengine.org/asset-library/asset/2261) from the Godot Asset Store.
 
 ## Types
 
