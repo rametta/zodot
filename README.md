@@ -7,7 +7,7 @@ Zodot is a lightweight data validation library for Godot. Define a schema shape,
 ## Features:
 
 - Validators for all the Godot [Variant Types](https://docs.godotengine.org/en/latest/classes/class_@globalscope.html#enum-globalscope-variant-type)
-- More expressive than what GDScript provides, allows things like `.nullable()` and `.union()`
+- More expressive than what GDScript provides, allows things like `.nullable()`, `.union()`, typed dictionaries, and more
 - Automatic data coercing with `.coerce()` that uses `str_to_var`
 - Extendible with custom validators for your own types
 - Clear error messages
@@ -56,15 +56,15 @@ Example where data was stored by calling `var_to_str` on every field and stored 
 
 ```gdscript
 var schema = Z.schema({
-	"my_float": Z.float().coerce(),
-	"my_color": Z.color().coerce(),
-	"my_vect3": Z.vector3().coerce()
+  "my_float": Z.float().coerce(),
+  "my_color": Z.color().coerce(),
+  "my_vect3": Z.vector3().coerce()
 })
 
 var data = {
-	"my_float": var_to_str(1.23),
-	"my_color": var_to_str(Color(5.5,6.6,7.7, .5)),
-	"my_vect3": var_to_str(Vector3(1.9,2.3,3.5)),
+  "my_float": var_to_str(1.23),
+  "my_color": var_to_str(Color(5.5,6.6,7.7, .5)),
+  "my_vect3": var_to_str(Vector3(1.9,2.3,3.5)),
 }
 
 # Simulate retreiving this data from external source
@@ -236,4 +236,19 @@ var data = {
 }
 
 schema.parse(data).ok() # true
+```
+
+### Z.union()
+
+A special type for allowing a field to be more than 1 type. Takes an array of schemas to validate against.
+
+Example:
+
+```gdscript
+# Allow a field to be a color OR a vector3
+var schema = Z.union([Z.color(), Z.vector3()])
+
+schema.parse(Vector3(1,2,3)).ok() # true
+schema.parse(Color(1,2,3)).ok() # true
+schema.parse(67).ok() # false
 ```

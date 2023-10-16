@@ -11,6 +11,9 @@ class_name Z
 ## [/codeblock]
 static func schema(dict: Dictionary) -> z_schema:
 	return z_schema.new(dict)
+	
+static func union(schemas: Array[Zodot]) -> z_union:
+	return z_union.new(schemas)
 
 static func nil() -> z_nil:
 	return z_nil.new()
