@@ -344,3 +344,19 @@ Z.vector4i().parse(Vector4i.ZERO).ok() # true
 Z.vector4i().parse(Vector4i(1, 2, 7, 8)).ok() # true
 Z.vector4i().parse(Vector4.ZERO).ok() # false
 ```
+
+### Z.transform2d() & Z.transform3d()
+
+Parse [Transform2D](https://docs.godotengine.org/en/latest/classes/class_transform2d.html#class-transform2d) and [Transform3D](https://docs.godotengine.org/en/latest/classes/class_transform3d.html#class-transform3d) types respectively.
+
+Example
+
+```gdscript
+# Transform2D
+Z.transform2d().parse(Transform2D.FLIP_X).ok() # true
+Z.transform2d().parse(Vector3.ZERO).ok() # false
+
+# Transform3D
+Z.transform3d().parse(Transform3D.FLIP_Z).ok() # true
+Z.transform3d().parse(Vector4.ZERO).ok() # false
+```
