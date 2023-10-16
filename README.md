@@ -4,7 +4,14 @@
 
 Zodot is a lightweight data validation library for Godot. Define a schema shape, then use that schema to validate any data. Excellent for parsing data that was stored in JSON, or data returned from API's.
 
-If validation passes then we are assured the data is in the correct shape, if not, Zodot provide friendly error messages for whichever field does not match the schema.
+## Features:
+
+- Validators for all the Godot [Variant Types](https://docs.godotengine.org/en/latest/classes/class_@globalscope.html#enum-globalscope-variant-type)
+- More expressive than what GDScript provides, allows things like `.nullable()` and `.union()`
+- Automatic data coercing with `.coerce()` that uses `str_to_var`
+- Extendible with custom validators for your own types
+- Clear error messages
+- Lightweight & Zero Dependencies
 
 ## Usage
 
@@ -13,7 +20,7 @@ Here is an example of a defined schema for a `User` with 3 fields and their corr
 ```gdscript
 # Our User Schema
 var UserSchema = Z.schema({
-  "name": Z.string().non_empty().maximum(5).minimum(1),
+  "name": Z.string().non_empty().maximum(5),
   "age": Z.integer().minimum(12),
   "is_tall": Z.boolean()
 })
@@ -45,9 +52,15 @@ print(result.ok()) # false
 print(result.error) # "Field 'age' has value lower than desired minimum of 12"
 ```
 
+Example where data was stored by calling `var_to_str` on every field and stored as `JSON`.
+
+```
+
+```
+
 ## Installation
 
-Clone `addons/zodot` into your projects `addons` folder, or download directly from the Godot Asset Store here. (Link coming soon - pending application approval)
+Clone `addons/zodot` into your projects `addons` folder, or [download directly](https://godotengine.org/asset-library/asset/2261) from the Godot Asset Store.
 
 ## Types
 
@@ -60,13 +73,13 @@ Examples
 
 ```gdscript
 # Coerce example
-var schema = Z.integer().minimum(1).maximum(20).coerce()
+var schema = Z.integer().minimum(2).maximum(20).coerce()
 schema.parse("5").ok() # true
 var result = schema.parse(var_to_str(26)).ok() # false
 result.data == 26 # true, result data contains the coerced value
 
 # Nullable example
-var schema = Z.integer().minimum(1).maximum(20).nullable()
+var schema = Z.integer().minimum(2).maximum(20).nullable()
 schema.parse(5).ok() # true
 schema.parse(null).ok() # true
 schema.parse(26).ok() # false
