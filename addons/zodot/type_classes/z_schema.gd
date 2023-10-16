@@ -32,5 +32,7 @@ func parse(value: Variant, field: String = "") -> ZodotResult:
 		var result: ZodotResult = field_validator.parse(value[_field], field_name)
 		if not result.ok():
 			return result
+			
+		value[_field] = result.data
 		
 	return ZodotResult.good(value)
