@@ -281,7 +281,7 @@ schema.parse(67).ok() # false
 
 ### Z.vector2() & Z.vector2i()
 
-Parse [Vector2](https://docs.godotengine.org/en/latest/classes/class_vector2.html#class-vector2) and [Vector2I](https://docs.godotengine.org/en/latest/classes/class_vector2i.html#class-vector2i) types respectively.
+Parse [Vector2](https://docs.godotengine.org/en/latest/classes/class_vector2.html#class-vector2) and [Vector2i](https://docs.godotengine.org/en/latest/classes/class_vector2i.html#class-vector2i) types respectively.
 
 Example
 
@@ -299,7 +299,7 @@ Z.vector2i().parse(Vector2.ZERO).ok() # false
 
 ### Z.vector3() & Z.vector3i()
 
-Parse [Vector3](https://docs.godotengine.org/en/latest/classes/class_vector2.html#class-vector2) and [Vector3I](https://docs.godotengine.org/en/latest/classes/class_vector2i.html#class-vector2i) types respectively.
+Parse [Vector3](https://docs.godotengine.org/en/latest/classes/class_vector3.html#class-vector3) and [Vector3i](https://docs.godotengine.org/en/latest/classes/class_vector3i.html#class-vector3i) types respectively.
 
 Example
 
@@ -313,4 +313,22 @@ Z.vector3().parse(Vector4.ZERO).ok() # false
 Z.vector3i().parse(Vector3i.ZERO).ok() # true
 Z.vector3i().parse(Vector3i(1, 2, 7)).ok() # true
 Z.vector3i().parse(Vector3.ZERO).ok() # false
+```
+
+### Z.vector4() & Z.vector4i()
+
+Parse [Vector4](https://docs.godotengine.org/en/latest/classes/class_vector4.html#class-vector4) and [Vector4i](https://docs.godotengine.org/en/latest/classes/class_vector4i.html#class-vector4i) types respectively.
+
+Example
+
+```gdscript
+# Vector4
+Z.vector4().parse(Vector4.ZERO).ok() # true
+Z.vector4().parse(Vector4(1.1, 2, 6, 1)).ok() # true
+Z.vector4().parse(Vector3.ZERO).ok() # false
+
+# Vector4I
+Z.vector4i().parse(Vector4i.ZERO).ok() # true
+Z.vector4i().parse(Vector4i(1, 2, 7, 8)).ok() # true
+Z.vector4i().parse(Vector4.ZERO).ok() # false
 ```
