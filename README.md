@@ -376,3 +376,33 @@ Z.rect2().parse(Vector3.ZERO).ok() # false
 Z.rect2i().parse(Rect2(1,2,3,4)).ok() # true
 Z.rect2i().parse(Vector4.ZERO).ok() # false
 ```
+
+### Z.plane()
+
+Parse [Plane](https://docs.godotengine.org/en/latest/classes/class_plane.html#class-plane) type.
+
+Example
+
+```gdscript
+Z.plane().parse(Plane.PLANE_XY).ok() # true
+```
+
+### Z.projection()
+
+Parse [Projection](https://docs.godotengine.org/en/latest/classes/class_projection.html#class-projection) type.
+
+Example
+
+```gdscript
+Z.projection().parse(Projection.ZERO).ok() # true
+```
+
+### Z.quaternion()
+
+Parse [Quaternion](https://docs.godotengine.org/en/latest/classes/class_quaternion.html#class-quaternion) type.
+
+Example
+
+```gdscript
+Z.quaternion().parse(Quaternion.IDENTITY).ok() # true
+```
