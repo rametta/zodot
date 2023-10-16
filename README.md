@@ -54,8 +54,30 @@ print(result.error) # "Field 'age' has value lower than desired minimum of 12"
 
 Example where data was stored by calling `var_to_str` on every field and stored as `JSON`.
 
-```
+```gdscript
+var schema = Z.schema({
+	"my_float": Z.float().coerce(),
+	"my_color": Z.color().coerce(),
+	"my_vect3": Z.vector3().coerce()
+})
 
+var data = {
+	"my_float": var_to_str(1.23),
+	"my_color": var_to_str(Color(5.5,6.6,7.7, .5)),
+	"my_vect3": var_to_str(Vector3(1.9,2.3,3.5)),
+}
+
+# Simulate retreiving this data from external source
+# by stringifying than parsing
+var json_string = JSON.stringify(data)
+var json = JSON.new()
+json.parse(json_string)
+
+var result = schema.parse(json.data)
+
+assert_eq(result.data.my_color, Color(5.5,6.6,7.7, .5)) # true
+assert_eq(result.data.my_float, 1.23) # true
+assert_eq(result.data.my_vect3, Vector3(1.9,2.3,3.5)) # true
 ```
 
 ## Installation
