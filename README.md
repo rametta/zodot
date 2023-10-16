@@ -252,3 +252,29 @@ schema.parse(Vector3(1,2,3)).ok() # true
 schema.parse(Color(1,2,3)).ok() # true
 schema.parse(67).ok() # false
 ```
+
+### Z.zenum() (Z.enum())
+
+A special type for parsing Godot `enum`'s.
+
+Note: Since `enum` is a reserved word, this validator can not be called `Z.enum()` so it is called `Z.zenum()` instead.
+
+Example:
+
+```gdscript
+enum Speed = {
+  Fast,
+  Slow,
+  Medium
+}
+
+var schema = Z.zenum(Speed)
+
+schema.parse(Speed.Fast).ok() # true
+schema.parse(Speed.Slow).ok() # true
+schema.parse(Speed.Medium).ok() # true
+schema.parse(0).ok() # true
+schema.parse(1).ok() # true
+schema.parse(2).ok() # true
+schema.parse(67).ok() # false
+```

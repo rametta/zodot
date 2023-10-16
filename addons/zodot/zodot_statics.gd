@@ -14,6 +14,9 @@ static func schema(dict: Dictionary) -> z_schema:
 	
 static func union(schemas: Array[Zodot]) -> z_union:
 	return z_union.new(schemas)
+	
+static func zenum(enum_type: Variant) -> z_enum:
+	return z_enum.new(enum_type)
 
 static func nil() -> z_nil:
 	return z_nil.new()
