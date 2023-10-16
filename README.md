@@ -296,3 +296,21 @@ Z.vector2i().parse(Vector2i.ZERO).ok() # true
 Z.vector2i().parse(Vector2i(1, 2)).ok() # true
 Z.vector2i().parse(Vector2.ZERO).ok() # false
 ```
+
+### Z.vector3() & Z.vector3i()
+
+Parse [Vector3](https://docs.godotengine.org/en/latest/classes/class_vector2.html#class-vector2) and [Vector3I](https://docs.godotengine.org/en/latest/classes/class_vector2i.html#class-vector2i) types respectively.
+
+Example
+
+```gdscript
+# Vector3
+Z.vector3().parse(Vector3.ZERO).ok() # true
+Z.vector3().parse(Vector3(1.1, 2, 6)).ok() # true
+Z.vector3().parse(Vector4.ZERO).ok() # false
+
+# Vector3I
+Z.vector3i().parse(Vector3i.ZERO).ok() # true
+Z.vector3i().parse(Vector3i(1, 2, 7)).ok() # true
+Z.vector3i().parse(Vector3.ZERO).ok() # false
+```
