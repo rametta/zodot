@@ -279,6 +279,18 @@ schema.parse(2).ok() # true
 schema.parse(67).ok() # false
 ```
 
+### Z.color()
+
+Parse [Color](https://docs.godotengine.org/en/latest/classes/class_color.html#class-color) type.
+
+Example
+
+```gdscript
+Z.color().parse(Color.ALICE_BLUE).ok() # true
+Z.color().parse(Color(1,2,3,0.5)).ok() # true
+Z.color().parse("blue").ok() # false
+```
+
 ### Z.vector2() & Z.vector2i()
 
 Parse [Vector2](https://docs.godotengine.org/en/latest/classes/class_vector2.html#class-vector2) and [Vector2i](https://docs.godotengine.org/en/latest/classes/class_vector2i.html#class-vector2i) types respectively.
