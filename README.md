@@ -360,3 +360,19 @@ Z.transform2d().parse(Vector3.ZERO).ok() # false
 Z.transform3d().parse(Transform3D.FLIP_Z).ok() # true
 Z.transform3d().parse(Vector4.ZERO).ok() # false
 ```
+
+### Z.rect2() & Z.rect2i()
+
+Parse [Rect2](https://docs.godotengine.org/en/latest/classes/class_rect2.html#class-rect2) and [Rect2i](https://docs.godotengine.org/en/latest/classes/class_rect2i.html#class-rect2i) types respectively.
+
+Example
+
+```gdscript
+# Rect2
+Z.rect2().parse(Rect2(1,2,3,4.5)).ok() # true
+Z.rect2().parse(Vector3.ZERO).ok() # false
+
+# Rect2i
+Z.rect2i().parse(Rect2(1,2,3,4)).ok() # true
+Z.rect2i().parse(Vector4.ZERO).ok() # false
+```
