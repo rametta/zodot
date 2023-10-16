@@ -86,9 +86,9 @@ assert_eq(result.data.my_vect3, Vector3(1.9,2.3,3.5)) # true
 
 ## Types
 
-Here is a list of all the available types to use for validation, and their associated constraints. All types also have available these base constraints:
+Here is a list of all the available types to use for validation, and their associated constraints. All types also have these base constraints available:
 
-- `.coerce()` calls `str_to_var()` before validation, useful if previously called `var_to_string()`
+- `.coerce()` calls `str_to_var()` before validation, useful if previously called `var_to_str()`
 - `.nullable()` allows the field to be null or missing
 
 Examples
