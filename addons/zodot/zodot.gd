@@ -1,4 +1,5 @@
-class_name Zodot
+@tool
+class_name Zodot extends EditorPlugin
 
 var _coerce = false
 var _nullable = false
