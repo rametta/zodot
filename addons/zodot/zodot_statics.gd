@@ -18,6 +18,9 @@ static func union(schemas: Array[Zodot]) -> z_union:
 static func zenum(enum_type: Variant) -> z_enum:
 	return z_enum.new(enum_type)
 
+static func literal(value: Variant) -> z_literal:
+	return z_literal.new(value)
+
 static func nil() -> z_nil:
 	return z_nil.new()
 	
