@@ -14,7 +14,7 @@ func _init(kind: Kind) -> void:
 func _valid_type(value: Variant) -> bool:
 	return typeof(value) == TYPE_BOOL
 
-func parse(value: Variant, field: String = "") -> ZodotResult:
+func parse(value: Variant, field: Variant = "") -> ZodotResult:
 	if _coerce and typeof(value) == TYPE_STRING:
 		value = str_to_var(value)
 		

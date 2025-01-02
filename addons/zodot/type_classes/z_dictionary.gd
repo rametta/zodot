@@ -13,7 +13,7 @@ func non_empty() -> z_dictionary:
 	_non_empty = true
 	return self
 
-func parse(value: Variant, field: String = "") -> ZodotResult:
+func parse(value: Variant, field: Variant = "") -> ZodotResult:
 	if _coerce and typeof(value) == TYPE_STRING:
 		value = str_to_var(value)
 		

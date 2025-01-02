@@ -5,7 +5,7 @@ var _schemas: Array[Zodot] = []
 func _init(schemas: Array[Zodot]):
 	_schemas = schemas
 
-func parse(value: Variant, field: String = "") -> ZodotResult:
+func parse(value: Variant, field: Variant = "") -> ZodotResult:
 	if _nullable and value == null:
 		return ZodotResult.good(value)
 		
