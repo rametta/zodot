@@ -18,7 +18,7 @@ var _enum
 func _init(enum_type: Variant):
 	_enum = enum_type
 
-func parse(value: Variant, field: String = "") -> ZodotResult:
+func parse(value: Variant, field: Variant = "") -> ZodotResult:
 	if _coerce and typeof(value) == TYPE_STRING:
 		value = str_to_var(value)
 		

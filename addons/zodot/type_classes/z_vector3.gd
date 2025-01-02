@@ -3,7 +3,7 @@ class_name z_vector3 extends Zodot
 func _valid_type(value: Variant) -> bool:
 	return typeof(value) == TYPE_VECTOR3
 
-func parse(value: Variant, field: String = "") -> ZodotResult:
+func parse(value: Variant, field: Variant = "") -> ZodotResult:
 	if _coerce and typeof(value) == TYPE_STRING:
 		value = str_to_var(value)
 		

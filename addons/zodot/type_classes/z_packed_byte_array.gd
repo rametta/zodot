@@ -3,7 +3,7 @@ class_name z_packed_byte_array extends Zodot
 func _valid_type(value: Variant) -> bool:
 	return typeof(value) == TYPE_PACKED_BYTE_ARRAY
 
-func parse(value: Variant, field: String = "") -> ZodotResult:
+func parse(value: Variant, field: Variant = "") -> ZodotResult:
 	if _coerce and typeof(value) == TYPE_STRING:
 		value = str_to_var(value)
 		
